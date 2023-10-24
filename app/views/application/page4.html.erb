@@ -1,0 +1,20 @@
+<h1>Page 4</h1>
+
+<%# Missing content message %>
+<%# <%= image_tag 'image.svg', class: 'w-52' %>
+
+<%= turbo_frame_tag 'page4-image' do %>
+  <%= image_tag 'image.svg', class: 'w-52' %>
+<% end %>
+
+<%= turbo_frame_tag 'page4-text' do %>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Quod fugit rerum incidunt architecto rem deleniti, dolorem
+    dolore consequuntur libero ex porro possimus eveniet repellendus
+    aspernatur non? Aut enim culpa eaque!
+  </p>
+<% end %>
+
+<%= turbo_frame_tag 'page4-image-response' do %>
+  <%= image_tag 'image.svg', class: 'w-52' %>
+<% end %>

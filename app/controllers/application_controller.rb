@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action -> { sleep 2 }
+  # before_action -> { sleep 2 }
   def page1; end
 
   def page2; end
@@ -7,4 +7,6 @@ class ApplicationController < ActionController::Base
   def page3
     redirect_to page2_path, status: :see_other
   end
+
+  def page4; end
 end
