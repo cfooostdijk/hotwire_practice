@@ -1,31 +1,23 @@
 <h1>Page 1</h1>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, minus similique quisquam, reiciendis eius corporis quibusdam unde dolorem maxime, non optio! Voluptates placeat distinctio nemo vel consequuntur blanditiis fugiat dignissimos!</p>
+<div data-controller="colors"
+     data-colors-reset-class="bg-white border-red-500"
+     data-colors-success-message-value="<%= @success_message %>"
+     data-colors-reset-message-value="<%= @reset_message %>">
+  <input type="text"
+         autocomplete="off"
+         placeholder="Type an HTML color"
+         data-colors-target="input">
 
-<%# With turbo disabled for link %>
-<%# <%= link_to 'Go to page 2 >', page2_path, data: { turbo: false } %>
+  <button class="bg-gray-200 border border-gray-500 rounded p-2"
+          data-action="colors#colorizeCard">Color it!</button>
 
-<%= link_to 'Go to page 2 >', page2_path %>
+  <button class="bg-gray-200 border border-gray-500 rounded p-2"
+          data-action="colors#resetCard">Reset</button>
 
-<%= form_with url: page3_path do |form| %>
-  <%= form.submit 'Submit form', class: 'p-2 mt-5 bg-gray-300' %>
-<% end %>
+  <div class="border border-black w-32 h-32 rounded mt-5"
+       data-colors-target="card"></div>
 
-<%= turbo_frame_tag 'page4-image', class: 'block bg-green-100 mt-10 p-5' do %>
-  <%= link_to 'Load image', page4_path %>
-<% end %>
-
-<%= turbo_frame_tag 'page4-image-link', class: 'block bg-green-100 mt-10 p-5' do %>
-  <%= link_to 'Load image to the other frame', page4_path, data: { turbo_frame: 'page4-image-response' } %>
-<% end %>
-
-<%= turbo_frame_tag 'page4-text', class: 'block bg-blue-100 mt-10 p-5' do %>
-  <%= link_to 'Load text', page4_path %>
-<% end %>
-
-<%= turbo_frame_tag 'page4-text', class: 'block bg-blue-100 mt-10 p-5' do %>
-  <%= link_to 'Load text to another page', page4_path, target: '_top' %>
-<% end %>
-
-<%# Frame with automatic and lazy loading %>
-<%= turbo_frame_tag 'page4-image-response', src: '/page4', loading: 'lazy', class: 'block bg-yellow-100 p-5', style: 'margin-top: 1000px' %>
+  <p class="mt-2 text-sm"
+     data-colors-target="message">Color not changed</p>
+</div>
